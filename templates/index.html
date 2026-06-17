@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Trends Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-wrapper">
+                <span class="brand">
+                    Job Market Analytics
+                </span>
+            </div>
+
+            <ul style="display:flex;list-style:none;gap:16px;margin:0;padding:0;align-items:center;">
+
+                <li>
+                    <a href="https://github.com/Rajsaura"
+                    target="_blank"
+                    style="text-decoration:none;color:#d1d5db;padding:8px 16px;border-radius:8px;font-weight:500;font-family:Arial,sans-serif;"
+                    onmouseover="this.style.background='#1e293b';this.style.color='white';"
+                    onmouseout="this.style.background='transparent';this.style.color='#d1d5db';">
+                        GitHub
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.linkedin.com/in/saurabh-raj-046a29389/"
+                    target="_blank"
+                    style="text-decoration:none;color:#d1d5db;padding:8px 16px;border-radius:8px;font-weight:500;font-family:Arial,sans-serif;"
+                    onmouseover="this.style.background='#1e293b';this.style.color='white';"
+                    onmouseout="this.style.background='transparent';this.style.color='#d1d5db';">
+                        LinkedIn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://leetcode.com/u/raj_saurabh2025/"
+                    target="_blank"
+                    style="text-decoration:none;color:#d1d5db;padding:8px 16px;border-radius:8px;font-weight:500;font-family:Arial,sans-serif;"
+                    onmouseover="this.style.background='#1e293b';this.style.color='white';"
+                    onmouseout="this.style.background='transparent';this.style.color='#d1d5db';">
+                        LeetCode
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </header>
+
+
+    <div class="dashboard">
+
+        <div class="chart-card">
+            <h2>Top Skills Trend</h2>
+
+            <div class="main-chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bottom-grid">
+
+            <div class="card">
+                <h3>Fastest Growing Skills</h3>
+                <div id="momentum"></div>
+                    
+            </div>
+
+            <div class="card">
+                <div id="skillInsight">
+
+                    <h2>Select a Skill</h2>
+
+                    <p>
+                        Click a skill from the
+                        Fastest Growing Skills section
+                        to view:
+                    </p>
+
+                    <ul>
+                        <li>Total job postings</li>
+                        <li>Top job roles</li>
+                        
+                        <li>Most common skill combinations</li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
