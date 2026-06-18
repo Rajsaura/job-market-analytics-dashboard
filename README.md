@@ -1,19 +1,19 @@
 
 
-###**Job Market Analytics Dashboard**
+ # **Job Market Analytics Dashboard**
 A real-time data analytics platform built with FastAPI, PostgreSQL, and Chart.js to track, aggregate, and visualize job market trends, salary distributions, and hiring demands.
 
-** #Overview**
+**#Overview**
 The Job Market Analytics Dashboard bridges the gap between raw job board data and actionable career insights. It features an asynchronous data ingestion pipeline, a structured relational database, and a lightweight, responsive frontend dashboard providing dynamic visual analytics.
 
-** #Key Features**
+**#Key Features**
 Asynchronous API Endpoints: Powered by FastAPI for high-throughput data processing.
 
 Dynamic Analytics: Frontend charts built with Chart.js to display job role distributions, salary percentiles, and top-hiring locations.
 
 Relational Data Modeling: Structured PostgreSQL schemas optimized for analytical aggregation queries.
 
-** #Tech Stack**
+**#Tech Stack**
 Backend: FastAPI (Python 3.10+)
 
 Database: PostgreSQL
@@ -21,8 +21,7 @@ Database: PostgreSQL
 Frontend: HTML5, Tailwind CSS, Chart.js
 
 Data Ingestion: BeautifulSoup4 / Requests (Scraper components)
-**
-  # Architecture & Data Flow**
+**# Architecture & Data Flow**
 Scraper Layer: Targets specific job boards to fetch unstructured HTML postings.
 
 ETL Pipeline: Parses, cleans, and transforms raw data into structured payloads.
@@ -33,7 +32,7 @@ API Service: FastAPI queries the database and serves aggregated JSON endpoints.
 
 UI Presentation: Chart.js consumes the API endpoints to render real-time analytics graphs.
 
-**  #Current Project Issues & Engineering Limitations**
+**#Current Project Issues & Engineering Limitations**
 As this project is in an active development and refinement phase, please be aware of the following known constraints:
 
 1. Automation Ingestion Block (CI/CD Limitations)
@@ -102,7 +101,7 @@ Access the local server at http://127.0.0.1:8000.
 [ ] Data Pipeline Decoupling: Move synthetic data out of the production main branch to a separate staging seed file.
 [ ] ADDING MORE BETTER ANALYSIS: Better analysis feature which give deeper insights 
 
-**LIVE LINK:- ** = https://job-market-analytics-dashboard.onrender.com/dashboard
+**LIVE LINK:-** = https://job-market-analytics-dashboard.onrender.com/dashboard
 
 
 🤝 Contributing
