@@ -11,8 +11,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-driver = webdriver.Chrome()
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+
+options.add_argument("--headless=new")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--window-size=1920,1080")
+
+driver = webdriver.Chrome(options=options)
 wait = WebDriverWait(driver, 10)
+
 
 
 
@@ -30,7 +40,8 @@ conn = psycopg2.connect(
     port=DB_PORT
 )
 cursor = conn.cursor()
-cursor.execute("""CREATE TABLE IF NOT EXISTS jobs (
+cursor.execute("""
+               CREATE TABLE IF NOT EXISTS jobs (
                     id SERIAL PRIMARY KEY,
                     company VARCHAR(255),   
                     position VARCHAR(255),
@@ -43,12 +54,12 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS jobs (
 
 target_jobs = [
     "data-scientist",
-    "data-analyst"
-    # "data-engineer",
-    # "machine-learning-engineer",
-    # "python-developer",
-    # "backend-developer",
-    # "devops-engineer"
+    "data-analyst",
+    "data-engineer",
+    "machine-learning-engineer",
+    "python-developer",
+    "backend-developer",
+    "devops-engineer"
 ]
 for target in target_jobs:
     stop = False

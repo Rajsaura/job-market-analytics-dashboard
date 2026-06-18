@@ -30,10 +30,12 @@ def dashboard(request: Request):
         request=request,
         name="index.html"
     )
-@app.get("/")
-def home():
-    return {"message": "API Working"}
-
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html"
+    )
 
 @app.get("/api/overview")
 def overview():

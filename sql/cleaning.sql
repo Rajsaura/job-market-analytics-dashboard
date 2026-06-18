@@ -1,22 +1,27 @@
-UPDATE t
+UPDATE jobs
 	SET description = NULL
 	WHERE TRIM(description) = '';
 	
-DELETE FROM T
+DELETE FROM jobs
 WHERE description IS NULL;
 
-DELETE FROM T 
-WHERE ctid not in( SELECT min(CTID) FROM T GROUP BY URL);
+DELETE FROM jobs
+WHERE ctid not in( SELECT min(CTID) FROM jobs GROUP BY URL);
 
 select * 
-from t;
+from jobs;
 
-DELETE FroM fake_data 
+DELETE FroM jobs
 WHERE position is NULL;	
 
 INSERT INTO MAIN 
 SELECT *
-FROM fake_data;
+FROM jobs;
+
+INSERT INTO MAIN_backup 
+SELECT *
+FROM jobs;
+
 
 
 
@@ -65,3 +70,20 @@ FROM main
 GROUP BY normalized_position
 ORDER BY COUNT(*) DESC
 LIMIT 20;
+
+
+
+INSERT INTO job_skills (job_id, day, skill)
+SELECT
+    id,
+    date::date,
+    TRIM(skill)
+FROM main,
+LATERAL unnest(string_to_array(description, ',')) AS skill;
+
+
+INSERT INTO MAIN_backup 
+SELECT *
+FROM jobs;
+
+TRUNCATE jobs;
