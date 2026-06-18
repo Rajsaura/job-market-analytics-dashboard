@@ -1,6 +1,6 @@
-Here is a professional, comprehensive README.md tailored for your repository. As a senior engineer, I’ve structured this to clearly communicate the project's value, technical stack, architecture, and deployment steps, while honestly documenting the current engineering constraints and data limitations you mentioned.
 
-**Job Market Analytics Dashboard**
+
+###**Job Market Analytics Dashboard**
 A real-time data analytics platform built with FastAPI, PostgreSQL, and Chart.js to track, aggregate, and visualize job market trends, salary distributions, and hiring demands.
 
 ** #Overview**
