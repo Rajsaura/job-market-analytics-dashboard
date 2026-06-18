@@ -19,9 +19,8 @@ def get_connection():
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
-print(templates)
-print(type(templates))
-print(templates.env)
+
+
 from fastapi.staticfiles import StaticFiles
 
 app.mount("/static", StaticFiles(directory="static"), name="static") 
