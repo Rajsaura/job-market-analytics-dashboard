@@ -21,7 +21,7 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--window-size=1920,1080")
 
 driver = webdriver.Chrome(options=options)
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 30)
 
 
 
@@ -63,27 +63,34 @@ target_jobs = [
 ]
 for target in target_jobs:
     stop = False
-    time.sleep(random.uniform(5,10))
+    time.sleep(random.uniform(15,60))
     driver.get(f"https://www.naukri.com/{target}-jobs")
-    time.sleep(random.uniform(5,10))
+    time.sleep(random.uniform(20,50))
+    print(driver.current_url)
+    print(driver.title)
+    driver.save_screenshot("page.png")
+
+    with open("page.html", "w", encoding="utf-8") as f:
+        f.write(driver.page_source)
+    
 
     sort_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@id='filter-sort']")))
 
     sort_button.click()
-    time.sleep(10)
+    time.sleep(30)
     date_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[@title='Date']")))
     date_option.click()
-    time.sleep(5)
+    time.sleep(25)
     
     
     for page in range(1, 10):
-        time.sleep(10)
+        time.sleep(30)
         web_naukri = driver.page_source
         soup_naukri = BeautifulSoup(web_naukri, "html.parser")
         job_cards = soup_naukri.find_all("div", class_="srp-jobtuple-wrapper" )
         safety = ["just now", "today" ,"few hours ago" ]
 
-        time.sleep(random.uniform(5,10))
+        time.sleep(random.uniform(15,50))
         for job in job_cards:
             p = job.find("span", class_="job-post-day").text.lower()
             if p in safety:
@@ -177,7 +184,7 @@ for target in target_jobs:
                 next_button
             )
 
-            time.sleep(1)
+            time.sleep(10)
 
             driver.execute_script(
                 "arguments[0].click();",
