@@ -43,9 +43,6 @@ jobs:
       - name: Run Scraper
         run: |
           python scraper.py
-            - name: Run Scraper
-        run: |
-          python scraper.py
 
       - name: Upload Debug Files
         if: failure()
@@ -55,10 +52,6 @@ jobs:
           path: |
             page.html
             page.png
-
-      - name: Run Cleaning
-        run: |
-          python cleaning.py
 
       - name: Run Cleaning
         run: |
