@@ -21,7 +21,9 @@ Database: PostgreSQL
 Frontend: HTML5, Tailwind CSS, Chart.js
 
 Data Ingestion: BeautifulSoup4 / Requests (Scraper components)
-**# Architecture & Data Flow**
+
+
+# **Architecture & Data Flow**
 Scraper Layer: Targets specific job boards to fetch unstructured HTML postings.
 
 ETL Pipeline: Parses, cleans, and transforms raw data into structured payloads.
