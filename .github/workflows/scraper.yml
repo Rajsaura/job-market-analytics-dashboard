@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Scraper
         run: |
-          python proxy_text.py
+          python proxy_test.py
 
       - name: Upload Debug Files
         if: always()
