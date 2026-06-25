@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Scraper
         run: |
-          python proxy_test.py
+          python proxy_text.py
 
       - name: Upload Debug Files
         if: always()
