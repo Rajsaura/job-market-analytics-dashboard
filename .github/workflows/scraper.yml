@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -27,6 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install selenium-wire webdriver-manager
 
       - name: Create .env
         run: |
@@ -35,6 +36,7 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
           echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "SCRAPEOPS_API_KEY=${{ secrets.SCRAPEOPS_API_KEY }}" >> .env
 
       - name: Verify Chrome
         run: |
@@ -42,10 +44,10 @@ jobs:
 
       - name: Run Scraper
         run: |
-          python scraper.py
+          python proxy_test.py
 
       - name: Upload Debug Files
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: scraper-debug
